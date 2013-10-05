@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){
     ofSetVerticalSync(true);
-    //ofSetBackgroundAuto(false);
+    
     ofEnableAlphaBlending();
     ofBackground(0);
     
@@ -32,11 +32,7 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    //ofSetRectMode(OF_RECTMODE_CORNER);
-    //ofSetColor(0, 25);
-    //ofRect(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
-
-
+    
     for( vector<Particle>::iterator it = pList.begin(); it!=pList.end(); it++){
         it->draw();
     }
