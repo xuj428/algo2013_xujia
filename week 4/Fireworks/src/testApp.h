@@ -19,8 +19,11 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-    void addParticle();
+    void addParticle(ofVec2f rPos);
+    
     
     vector<Particle> pList;
-		
+    ofVec2f pos;
+    ofColor c;
+	
 };

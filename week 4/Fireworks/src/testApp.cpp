@@ -2,15 +2,20 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ofBackground(0);
     ofSetVerticalSync(true);
-    ofSetFrameRate(60);
+    //ofSetBackgroundAuto(false);
+    ofEnableAlphaBlending();
+    ofBackground(0);
     
-   
-    }
+           }
 
 //--------------------------------------------------------------
 void testApp::update(){
+    pos.x=ofRandom(ofGetWindowWidth());
+    pos.y=ofRandom(ofGetWindowHeight()-150);
+    
+   
+
     
        for( vector<Particle>::iterator it=pList.begin(); it!=pList.end();){
         it->update();
@@ -22,30 +27,39 @@ void testApp::update(){
             it++;
         }
     }
+    
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
+    //ofSetRectMode(OF_RECTMODE_CORNER);
+    //ofSetColor(0, 25);
+    //ofRect(0, 0, ofGetWindowWidth(), ofGetWindowHeight());
+
+
     for( vector<Particle>::iterator it = pList.begin(); it!=pList.end(); it++){
         it->draw();
     }
     for( int i=0; i<50; i++ ){
-        if (ofGetFrameNum()%150==0) {
-            addParticle();
-        }
-        
+        if (int(ofGetElapsedTimeMillis() % 120 == 0)){
+            addParticle(pos);
+                    }
+      
+        cout<<"pos: "<<pos<<endl;
         
     }
 
+        
 }
 
-void testApp::addParticle(){
+void testApp::addParticle(ofVec2f rPos){
     Particle p;
-    
-    
     ofVec2f rVel = ofVec2f( ofRandom(1.5)*10-7.5,ofRandom(1.0)* 10.0 - 5.0);
+
     
-    p.setup( rVel);
+    
+        
+    p.setup(rVel,rPos);
     pList.push_back( p );
 }
 
@@ -71,6 +85,7 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
+    ofSetColor(ofRandom(255),ofRandom(255),ofRandom(255));
     
         }
 

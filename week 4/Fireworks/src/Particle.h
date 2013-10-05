@@ -4,8 +4,8 @@
 class Particle{
 public:
     Particle(){};
-    void setup(ofVec2f rVel);
-    //void setpos();
+    void setup(ofVec2f rVel, ofVec2f rPos);
+    
     void update();
     void draw();
     

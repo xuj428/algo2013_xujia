@@ -8,24 +8,21 @@
 
 #include "Particle.h"
 
-void Particle::setup(ofVec2f rVel){
+void Particle::setup(ofVec2f rVel, ofVec2f rPos){
     vel = rVel;
     acc = ofVec2f(0,ofRandom(0.1,0.2));
     age = 0;
     lifespan = ofRandom(100,180);
-   pos=ofGetWindowSize()/2;
-     ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
+    pos = rPos;
+ 
     
 
 }
 
-//void Particle::setpos(){
-  //   pos=ofGetWindowSize()/2;
-//}
 
 void Particle::update(){
     float agePct =1.0-((float)age/(float)lifespan);
-    vel +=acc;
+        vel +=acc;
     pos +=vel;
     vel *=0.97;
     age++;
