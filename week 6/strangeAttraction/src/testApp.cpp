@@ -6,12 +6,13 @@ void testApp::setup(){
     ofSetVerticalSync(true);
     ofBackground(0);
     ofEnableAlphaBlending();
+    ofSeedRandom();
     
     a = -0.966918;
 	b = 2.879879;
 	c = 0.765145;
 	d = 0.744728;
-    for (int i = 0; i<1500; i++) {
+    for (int i = 0; i<2000; i++) {
         ofVec2f pos;
         pos.set(ofRandom(2),ofRandom(2));
         pList.push_back(pos);
@@ -41,11 +42,11 @@ void testApp::draw(){
        float ynew = sin(pList[i].x*a) + d*sin(pList[i].y*a);
         pList[i].x = xnew;
         pList[i].y = ynew;
-        float mappedX = ofMap(xnew, -2.0, 2.0, -300, 300);
-        float mappedY = ofMap(ynew, -2.0, 2.0, -300, 300);
+        float mappedX = ofMap(xnew, -2.0, 2.0, -250, 250);
+        float mappedY = ofMap(ynew, -2.0, 2.0, -250, 250);
 
         
-        ofCircle(mappedX, mappedY,0.5);
+        ofCircle(mappedX, mappedY,0.7);
         
 //        cout<<i<<endl;
 //        cout<<"x="<<mappedX<<endl;
