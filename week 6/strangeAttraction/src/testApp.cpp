@@ -11,7 +11,7 @@ void testApp::setup(){
 	b = 2.879879;
 	c = 0.765145;
 	d = 0.744728;
-    for (int i = 0; i<1000; i++) {
+    for (int i = 0; i<1500; i++) {
         ofVec2f pos;
         pos.set(ofRandom(2),ofRandom(2));
         pList.push_back(pos);
@@ -47,10 +47,9 @@ void testApp::draw(){
         
         ofCircle(mappedX, mappedY,0.5);
         
-        
-        cout<<i<<endl;
-        cout<<"x="<<mappedX<<endl;
-        cout<<"y="<<mappedY<<endl;
+//        cout<<i<<endl;
+//        cout<<"x="<<mappedX<<endl;
+//        cout<<"y="<<mappedY<<endl;
 
     }
         // ofEndShape();
