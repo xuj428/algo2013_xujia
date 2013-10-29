@@ -13,27 +13,27 @@ Particle::Particle(){
 }
 
 void Particle::setup(){
-    ofSeedRandom();
+ 
     pos.x=ofRandom(ofGetWindowWidth());
     pos.y=ofRandom(ofGetWindowHeight());
-    vel.x=ofRandom(-2, 2);
+    vel.x=ofRandom(-2,2);
     vel.y=ofRandom(-2, 2);
-    acc.x=ofRandom(-2,2);
-    acc.y=ofRandom(-2,2);
+    acc.x=ofRandom(-1,1);
+    acc.y=ofRandom(-1,1);
     c.setHsb(ofRandom(255), 255, 255);
 
 }
 
 void Particle::update(){
     
-        if (pos.x<0.0||pos.x>ofGetWindowWidth()-ellipseW) {
-        vel.x = -vel.x;
+        if (pos.x<0.0||pos.x>ofGetWindowWidth()) {
+        vel.x *= -0.98;
         ellipseW =15;
         } else{
             ellipseW=20;
         }
-    if (pos.y<0.0||pos.y>ofGetWindowHeight()-ellipseH) {
-        vel.y = -vel.y;
+    if (pos.y<0.0||pos.y>ofGetWindowHeight()) {
+        vel.y *= -0.98;
         ellipseH = 15;
     }
     else{
@@ -50,7 +50,7 @@ void Particle::update(){
     
     vel += acc;
     pos += vel;
-    vel *= 0.8;
+    //vel *= 0.98;
 }
 
 void Particle::draw(){
